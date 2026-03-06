@@ -1,0 +1,102 @@
+{
+    "applications": {
+        "applicationTypes": {
+            "page": {
+                "title": "أنواع الطلبات",
+                "description": "عرض وإدارة أنواع طلبات رخصة القيادة ورسومها."
+            },
+            "table": {
+                "search": "البحث في أنواع الطلبات...",
+                "noResults": "لم يتم العثور على أنواع طلبات.",
+                "rowsPerPage": "صفوف في الصفحة",
+                "columns": "الأعمدة"
+            },
+            "columns": {
+                "id": "الرقم",
+                "title": "العنوان",
+                "fees": "الرسوم"
+            },
+            "actions": {
+                "edit": "تعديل"
+            },
+            "editDialog": {
+                "title": "تعديل نوع الطلب",
+                "titleLabel": "العنوان",
+                "titlePlaceholder": "أدخل عنوان نوع الطلب",
+                "feesLabel": "الرسوم",
+                "feesPlaceholder": "0.00",
+                "cancel": "إلغاء",
+                "save": "حفظ التغييرات",
+                "saving": "جارٍ الحفظ..."
+            }
+        },
+        "localDrivingLicense": {
+            "page": {
+                "title": "طلبات رخصة القيادة المحلية",
+                "description": "إدارة طلبات رخصة القيادة المحلية الجديدة."
+            },
+            "newDialog": {
+                "title": "طلب رخصة قيادة محلية جديد",
+                "tabs": {
+                    "personalInfo": "المعلومات الشخصية",
+                    "applicationInfo": "معلومات الطلب"
+                },
+                "personLookup": {
+                    "addNewPerson": "إضافة شخص جديد"
+                },
+                "applicationInfo": {
+                    "applicationDate": "تاريخ الطلب",
+                    "licenseClass": "فئة الرخصة",
+                    "licenseClassPlaceholder": "اختر فئة الرخصة",
+                    "licenseFees": "رسوم الرخصة",
+                    "applicationFees": "رسوم الطلب",
+                    "createdBy": "أنشأ بواسطة"
+                },
+                "buttons": {
+                    "next": "تالي",
+                    "back": "رجوع",
+                    "save": "حفظ الطلب",
+                    "saving": "جارٍ الحفظ...",
+                    "close": "إغلاق"
+                }
+            },
+            "table": {
+                "newApplication": "طلب جديد",
+                "search": "البحث في الطلبات...",
+                "noResults": "لا توجد طلبات.",
+                "rowsPerPage": "صفوف في الصفحة",
+                "columns": "الأعمدة"
+            },
+            "columns": {
+                "applicationId": "رقم الطلب",
+                "drivingClass": "فئة الرخصة",
+                "nationalNo": "رقم الهوية",
+                "fullName": "الاسم الكامل",
+                "passedTests": "الاختبارات الناجحة",
+                "status": "الحالة",
+                "actions": "الإجراءات"
+            },
+            "actions": {
+                "openMenu": "فتح القائمة",
+                "label": "الإجراءات",
+                "scheduleTests": "جدولة الاختبارات",
+                "vision": "اختبار الرؤية",
+                "written": "الاختبار التحريري",
+                "practical": "الاختبار العملي",
+                "issueLicense": "إصدار رخصة",
+                "viewLicense": "عرض الرخصة",
+                "licenseHistory": "سجل الرخص",
+                "cancel": "إلغاء الطلب",
+                "cancelConfirmTitle": "إلغاء الطلب؟",
+                "cancelConfirmDescription": "سيتم تعليم هذا الطلب كملغي. لا يمكن التراجع عن هذا الإجراء.",
+                "cancelConfirmBtn": "نعم، ألغِه",
+                "cancelCancelBtn": "رجوع"
+            },
+            "status": {
+                "1": "جديد",
+                "2": "ملغي",
+                "3": "مكتمل"
+            }
+        }
+    }
+}

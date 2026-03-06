@@ -1,0 +1,102 @@
+{
+    "applications": {
+        "applicationTypes": {
+            "page": {
+                "title": "Application Types",
+                "description": "View and manage driving license application types and their fees."
+            },
+            "table": {
+                "search": "Search application types...",
+                "noResults": "No application types found.",
+                "rowsPerPage": "Rows per page",
+                "columns": "Columns"
+            },
+            "columns": {
+                "id": "ID",
+                "title": "Title",
+                "fees": "Fees"
+            },
+            "actions": {
+                "edit": "Edit"
+            },
+            "editDialog": {
+                "title": "Edit Application Type",
+                "titleLabel": "Title",
+                "titlePlaceholder": "Enter application type title",
+                "feesLabel": "Fees",
+                "feesPlaceholder": "0.00",
+                "cancel": "Cancel",
+                "save": "Save Changes",
+                "saving": "Saving..."
+            }
+        },
+        "localDrivingLicense": {
+            "page": {
+                "title": "Local Driving License Applications",
+                "description": "Manage new local driving license applications."
+            },
+            "newDialog": {
+                "title": "New Local Driving License Application",
+                "tabs": {
+                    "personalInfo": "Personal Info",
+                    "applicationInfo": "Application Info"
+                },
+                "personLookup": {
+                    "addNewPerson": "Add New Person"
+                },
+                "applicationInfo": {
+                    "applicationDate": "Application Date",
+                    "licenseClass": "License Class",
+                    "licenseClassPlaceholder": "Select a license class",
+                    "licenseFees": "License Fees",
+                    "applicationFees": "Application Fees",
+                    "createdBy": "Created By"
+                },
+                "buttons": {
+                    "next": "Next",
+                    "back": "Back",
+                    "save": "Save Application",
+                    "saving": "Saving...",
+                    "close": "Close"
+                }
+            },
+            "table": {
+                "newApplication": "New Application",
+                "search": "Search applications...",
+                "noResults": "No applications found.",
+                "rowsPerPage": "Rows per page",
+                "columns": "Columns"
+            },
+            "columns": {
+                "applicationId": "App ID",
+                "drivingClass": "License Class",
+                "nationalNo": "National No.",
+                "fullName": "Full Name",
+                "passedTests": "Passed Tests",
+                "status": "Status",
+                "actions": "Actions"
+            },
+            "actions": {
+                "openMenu": "Open actions",
+                "label": "Actions",
+                "scheduleTests": "Schedule Tests",
+                "vision": "Vision Test",
+                "written": "Written Test",
+                "practical": "Practical Test",
+                "issueLicense": "Issue License",
+                "viewLicense": "View License",
+                "licenseHistory": "License History",
+                "cancel": "Cancel Application",
+                "cancelConfirmTitle": "Cancel Application?",
+                "cancelConfirmDescription": "This will mark the application as Cancelled. This action cannot be undone.",
+                "cancelConfirmBtn": "Yes, Cancel It",
+                "cancelCancelBtn": "Go Back"
+            },
+            "status": {
+                "1": "New",
+                "2": "Cancelled",
+                "3": "Completed"
+            }
+        }
+    }
+}

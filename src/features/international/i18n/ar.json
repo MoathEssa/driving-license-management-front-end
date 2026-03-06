@@ -1,0 +1,58 @@
+{
+    "international": {
+        "issuePage": {
+            "title": "إصدار رخصة دولية",
+            "description": "أدخل رقم رخصة محلية من الفئة 3 صالحة لإصدار رخصة قيادة دولية.",
+            "licenseIdLabel": "رقم الرخصة المحلية",
+            "licenseIdPlaceholder": "أدخل رقم الرخصة...",
+            "searchBtn": "تحقق",
+            "searching": "جارٍ التحقق...",
+            "localLicenseSection": "تفاصيل الرخصة المحلية",
+            "issueBtn": "إصدار الرخصة الدولية",
+            "issuing": "جارٍ الإصدار...",
+            "successTitle": "تم إصدار الرخصة الدولية",
+            "successDescription": "تم إصدار الرخصة الدولية بنجاح.",
+            "fields": {
+                "intLicenseId": "رقم الرخصة الدولية",
+                "applicationId": "رقم الطلب",
+                "localLicenseId": "رقم الرخصة المحلية",
+                "driver": "السائق",
+                "issueDate": "تاريخ الإصدار",
+                "expiryDate": "تاريخ الانتهاء",
+                "fees": "الرسوم المدفوعة",
+                "status": "الحالة"
+            },
+            "active": "فعّالة",
+            "inactive": "غير فعّالة",
+            "validationFailed": "فشل التحقق. تحقق من رقم الرخصة."
+        },
+        "managePage": {
+            "title": "رخص القيادة الدولية",
+            "description": "جميع رخص القيادة الدولية المُصدرة.",
+            "col": {
+                "intLicenseId": "رقم الرخصة الدولية",
+                "applicationId": "رقم الطلب",
+                "localLicenseId": "رقم الرخصة المحلية",
+                "driverId": "رقم السائق",
+                "fullName": "الاسم الكامل",
+                "nationalNo": "رقم هوية",
+                "localClass": "فئة الرخصة المحلية",
+                "issueDate": "تاريخ الإصدار",
+                "expiryDate": "تاريخ الانتهاء",
+                "isActive": "فعّالة",
+                "paidFees": "الرسوم المدفوعة",
+                "issuedBy": "صادرة بواسطة",
+                "actions": "إجراءات"
+            },
+            "actions": {
+                "personDetails": "تفاصيل الشخص",
+                "licenseDetails": "تفاصيل الرخصة",
+                "licenseHistory": "سجل الرخص"
+            },
+            "yes": "نعم",
+            "no": "لا",
+            "rowsPerPage": "عدد الصفوف",
+            "columns": "الأعمدة"
+        }
+    }
+}

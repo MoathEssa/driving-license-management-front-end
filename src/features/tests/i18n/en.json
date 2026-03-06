@@ -1,0 +1,93 @@
+{
+    "tests": {
+        "testTypes": {
+            "page": {
+                "title": "Test Types",
+                "description": "View and manage driving license test types and their fees."
+            },
+            "table": {
+                "search": "Search test types...",
+                "noResults": "No test types found.",
+                "rowsPerPage": "Rows per page",
+                "columns": "Columns"
+            },
+            "columns": {
+                "id": "ID",
+                "title": "Title",
+                "description": "Description",
+                "fees": "Fees"
+            },
+            "actions": {
+                "edit": "Edit"
+            },
+            "editDialog": {
+                "title": "Edit Test Type",
+                "titleLabel": "Title",
+                "titlePlaceholder": "Enter test type title",
+                "descriptionLabel": "Description",
+                "descriptionPlaceholder": "Enter test type description (optional)",
+                "feesLabel": "Fees",
+                "feesPlaceholder": "0.00",
+                "cancel": "Cancel",
+                "save": "Save Changes",
+                "saving": "Saving..."
+            }
+        },
+        "appointments": {
+            "dialog": {
+                "title": "{{testType}} Test Appointments",
+                "ldlaId": "D.L. App ID",
+                "class": "Class",
+                "name": "Applicant",
+                "scheduleBtn": "Schedule Test",
+                "closeBtn": "Close"
+            },
+            "table": {
+                "trial": "Trial",
+                "date": "Date",
+                "fees": "Fees",
+                "result": "Result",
+                "notes": "Notes",
+                "actions": "Take Test",
+                "noResults": "No appointments scheduled yet."
+            },
+            "results": {
+                "pass": "Pass",
+                "fail": "Fail",
+                "pending": "Pending"
+            }
+        },
+        "schedule": {
+            "title": "Schedule {{testType}} Test",
+            "date": "Appointment Date",
+            "datePlaceholder": "Select date",
+            "fees": "Test Fees",
+            "trial": "Trial No.",
+            "save": "Schedule",
+            "saving": "Scheduling...",
+            "cancel": "Cancel"
+        },
+        "takeTest": {
+            "title": "Take {{testType}} Test",
+            "result": "Test Result",
+            "pass": "Pass",
+            "fail": "Fail",
+            "notes": "Notes",
+            "notesPlaceholder": "Optional notes...",
+            "save": "Record Result",
+            "saving": "Saving...",
+            "cancel": "Cancel"
+        },
+        "issueLicense": {
+            "title": "Issue License — First Time",
+            "ldlaId": "D.L. App ID",
+            "class": "Class",
+            "name": "Applicant",
+            "notes": "Notes",
+            "notesPlaceholder": "Optional notes...",
+            "issueBtn": "Issue License",
+            "issuing": "Issuing...",
+            "cancel": "Cancel"
+        }
+    }
+}

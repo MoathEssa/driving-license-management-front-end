@@ -1,0 +1,88 @@
+{
+    "users": {
+        "page": {
+            "title": "إدارة المستخدمين",
+            "addUser": "إضافة مستخدم جديد",
+            "description": "إنشاء وإدارة حسابات المستخدمين للأشخاص في النظام."
+        },
+        "fields": {
+            "fullName": "الاسم الكامل",
+            "nationalNo": "الرقم الوطني",
+            "dateOfBirth": "تاريخ الميلاد",
+            "gender": "الجنس",
+            "email": "البريد الإلكتروني",
+            "phone": "الهاتف",
+            "address": "العنوان",
+            "hasAccount": "حالة الحساب",
+            "role": "الدور"
+        },
+        "roles": {
+            "user": "مستخدم",
+            "admin": "مدير"
+        },
+        "wizard": {
+            "title": "إضافة مستخدم جديد",
+            "tab1": "البحث عن شخص",
+            "tab2": "معلومات المستخدم",
+            "personInfo": "معلومات الشخص",
+            "nationalNoLabel": "الرقم الوطني",
+            "nationalNoPlaceholder": "أدخل الرقم الوطني للبحث...",
+            "search": "بحث",
+            "searching": "جارٍ البحث...",
+            "personNotFound": "لم يتم العثور على شخص بهذا الرقم الوطني.",
+            "alreadyHasAccount": "هذا الشخص لديه حساب مستخدم بالفعل.",
+            "next": "التالي",
+            "back": "رجوع",
+            "emailPlaceholder": "أدخل بريد المستخدم الإلكتروني",
+            "rolePlaceholder": "اختر الدور",
+            "createUser": "إنشاء المستخدم",
+            "creating": "جارٍ الإنشاء..."
+        },
+        "table": {
+            "search": "البحث عن المستخدمين...",
+            "noResults": "لم يتم العثور على مستخدمين.",
+            "rowsPerPage": "صفوف في الصفحة",
+            "columns": "الأعمدة"
+        },
+        "columns": {
+            "userId": "الرقم",
+            "email": "البريد الإلكتروني",
+            "role": "الدور",
+            "fullName": "الاسم الكامل",
+            "phone": "الهاتف",
+            "status": "الحالة",
+            "createdAt": "تاريخ الإنشاء"
+        },
+        "actions": {
+            "sendEmail": "إرسال بريد إلكتروني",
+            "activate": "تفعيل المستخدم",
+            "deactivate": "تعطيل المستخدم",
+            "cannotDeactivateSelf": "لا يمكنك تعطيل حسابك الخاص"
+        },
+        "status": {
+            "active": "نشط",
+            "inactive": "غير نشط"
+        },
+        "sendEmailDialog": {
+            "title": "إرسال بريد إلكتروني إلى {{name}}",
+            "description": "أنشئ رسالة لإرسالها مباشرة إلى عنوان البريد الإلكتروني لهذا المستخدم.",
+            "subjectLabel": "الموضوع",
+            "subjectPlaceholder": "أدخل موضوع البريد الإلكتروني...",
+            "messageLabel": "الرسالة",
+            "messagePlaceholder": "اكتب رسالتك هنا...",
+            "send": "إرسال البريد الإلكتروني",
+            "sending": "جارٍ الإرسال...",
+            "successTitle": "تم الإرسال",
+            "successMessage": "تم إرسال رسالتك بنجاح.",
+            "errorTitle": "فشل الإرسال"
+        },
+        "toggleActiveDialog": {
+            "deactivateTitle": "تعطيل المستخدم",
+            "activateTitle": "تفعيل المستخدم",
+            "deactivateDescription": "هل أنت متأكد أنك تريد تعطيل {{name}}؟ لن يتمكن من تسجيل الدخول بعد الآن.",
+            "activateDescription": "هل أنت متأكد أنك تريد تفعيل {{name}}؟ سيتمكن من تسجيل الدخول مجدداً.",
+            "confirm": "تأكيد",
+            "cancel": "إلغاء"
+        }
+    }
+}

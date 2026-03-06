@@ -1,0 +1,64 @@
+{
+    "dashboard": {
+        "pageSubtitle": "نظرة عامة على جميع العمليات في مركز الإدارة.",
+        "kpi": {
+            "licensedDrivers": "السائقون المرخصون",
+            "peopleRegistered": "{{val}} شخص مسجل",
+            "activeLicenses": "الرخص النشطة",
+            "internationalCount": "{{val}} دولية",
+            "applicationsMonth": "الطلبات (هذا الشهر)",
+            "allTime": "{{val}} إجمالاً",
+            "detainedLicenses": "الرخص المحجوزة",
+            "totalFines": "{{amount}} إجمالي الغرامات",
+            "revenueMonth": "الإيرادات (هذا الشهر)"
+        },
+        "charts": {
+            "monthlyTrend": "اتجاه الطلبات الشهرية",
+            "appsByType": "الطلبات حسب النوع",
+            "testPassRates": "نسب نجاح الاختبارات",
+            "licensesByReason": "الرخص حسب سبب الإصدار",
+            "appsByStatus": "الطلبات حسب الحالة"
+        },
+        "legend": {
+            "total": "الإجمالي",
+            "completed": "مكتمل",
+            "passed": "ناجح",
+            "failed": "راسب",
+            "licenses": "رخصة"
+        },
+        "appTypeShort": {
+            "newLocal": "محلية",
+            "international": "دولية",
+            "renewal": "تجديد",
+            "replacement": "استبدال",
+            "release": "فك احتجاز",
+            "drivingTest": "اختبار",
+            "retakeTest": "إعادة"
+        },
+        "status": {
+            "New": "جديد",
+            "Completed": "مكتمل",
+            "Cancelled": "ملغى",
+            "totalApplications": "{{val}} طلب إجمالاً"
+        },
+        "detain": {
+            "title": "ملخص الاحتجاز والغرامات",
+            "totalEver": "إجمالي المحتجزين",
+            "totalFines": "إجمالي الغرامات",
+            "currentlyDetained": "محتجز حالياً",
+            "pendingFines": "غرامات معلقة",
+            "released": "تم الإفراج",
+            "collectedFines": "غرامات محصلة",
+            "releaseRate": "نسبة الإفراج"
+        },
+        "system": {
+            "title": "نظرة عامة على النظام",
+            "totalPeople": "إجمالي الأشخاص",
+            "testsTaken": "الاختبارات المُجراة",
+            "activeUsers": "المستخدمون النشطون",
+            "testsPassed": "اختبارات ناجحة ({{rate}}%)",
+            "intlActive": "الرخص الدولية النشطة",
+            "expiredLicenses": "الرخص المنتهية"
+        }
+    }
+}

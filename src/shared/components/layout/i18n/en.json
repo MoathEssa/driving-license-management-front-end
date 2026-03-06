@@ -1,0 +1,35 @@
+{
+    "sidebar": {
+        "groups": {
+            "main": "Main",
+            "applications": "Applications",
+            "management": "Management",
+            "admin": "Administration"
+        },
+        "nav": {
+            "dashboard": "Dashboard",
+            "drivingLicensesServices": "Driving Licenses Services",
+            "newDrivingLicense": "New Driving License",
+            "localLicense": "Local License",
+            "internationalLicense": "International License",
+            "renewLicense": "Renew Driving License",
+            "replacementLicense": "Replacement for Lost or Damaged",
+            "releaseDetained": "Release Detained License",
+            "retakeTest": "Retake Test",
+            "manageApplications": "Manage Applications",
+            "localDLApplications": "Local DL Applications",
+            "internationalLicenseApps": "International License Applications",
+            "detainLicenses": "Detain Licenses",
+            "detainLicense": "Detain License",
+            "applicationTypes": "Manage Application Types",
+            "testTypes": "Manage Test Types",
+            "people": "People",
+            "drivers": "Drivers",
+            "users": "Users",
+            "accountSettings": "Account Settings"
+        }
+    },
+    "header": {
+        "toggleSidebar": "Toggle sidebar"
+    }
+}

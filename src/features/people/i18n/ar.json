@@ -1,0 +1,90 @@
+{
+    "people": {
+        "page": {
+            "title": "إدارة الأشخاص",
+            "description": "عرض وإدارة جميع الأشخاص المسجلين في النظام."
+        },
+        "table": {
+            "search": "بحث عن شخص...",
+            "noResults": "لا يوجد أشخاص.",
+            "rowsPerPage": "صفوف في الصفحة",
+            "columns": "الأعمدة"
+        },
+        "columns": {
+            "id": "الرقم",
+            "nationalNo": "الرقم الوطني",
+            "fullName": "الاسم الكامل",
+            "gender": "الجنس",
+            "dateOfBirth": "تاريخ الميلاد",
+            "email": "البريد الإلكتروني",
+            "phone": "الهاتف"
+        },
+        "actions": {
+            "edit": "تعديل",
+            "delete": "حذف"
+        },
+        "form": {
+            "nationalNo": "الرقم الوطني",
+            "nationalNoPlaceholder": "أدخل الرقم الوطني",
+            "firstName": "الاسم الأول",
+            "firstNamePlaceholder": "أدخل الاسم الأول",
+            "secondName": "الاسم الثاني",
+            "secondNamePlaceholder": "أدخل الاسم الثاني (اختياري)",
+            "thirdName": "الاسم الثالث",
+            "thirdNamePlaceholder": "أدخل الاسم الثالث (اختياري)",
+            "lastName": "اسم العائلة",
+            "lastNamePlaceholder": "أدخل اسم العائلة",
+            "dateOfBirth": "تاريخ الميلاد",
+            "dateOfBirthPlaceholder": "اختر تاريخ الميلاد",
+            "gender": "الجنس",
+            "genderPlaceholder": "اختر الجنس",
+            "email": "البريد الإلكتروني",
+            "emailPlaceholder": "أدخل البريد الإلكتروني (اختياري)",
+            "phone": "الهاتف",
+            "phonePlaceholder": "أدخل رقم الهاتف (اختياري)",
+            "address": "العنوان",
+            "addressPlaceholder": "أدخل العنوان (اختياري)",
+            "uploadPhoto": "رفع صورة",
+            "changePhoto": "تغيير الصورة"
+        },
+        "addPerson": {
+            "title": "إضافة شخص جديد",
+            "button": "إضافة شخص",
+            "submit": "إضافة شخص",
+            "success": "تمت إضافة الشخص بنجاح."
+        },
+        "editPerson": {
+            "title": "تعديل – {{name}}",
+            "submit": "حفظ التغييرات",
+            "success": "تم تحديث بيانات الشخص بنجاح."
+        },
+        "deletePerson": {
+            "title": "حذف شخص",
+            "description": "هل أنت متأكد من حذف \"{{name}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+            "confirm": "حذف",
+            "cancel": "إلغاء"
+        },
+        "info": {
+            "title": "معلومات الشخص",
+            "fullName": "الاسم الكامل",
+            "nationalNo": "الرقم الوطني",
+            "dateOfBirth": "تاريخ الميلاد",
+            "gender": "الجنس",
+            "email": "البريد الإلكتروني",
+            "phone": "الهاتف",
+            "address": "العنوان",
+            "hasAccount": "حالة الحساب",
+            "statusActive": "لديه حساب",
+            "statusNoAccount": "بدون حساب",
+            "male": "ذكر",
+            "female": "أنثى"
+        },
+        "lookup": {
+            "nationalNoLabel": "الرقم الوطني",
+            "nationalNoPlaceholder": "أدخل الرقم الوطني للبحث...",
+            "search": "بحث",
+            "searching": "جارٍ البحث...",
+            "personNotFound": "لم يتم العثور على شخص بهذا الرقم الوطني."
+        }
+    }
+}

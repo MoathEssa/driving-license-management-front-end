@@ -1,0 +1,58 @@
+{
+    "international": {
+        "issuePage": {
+            "title": "Issue International License",
+            "description": "Enter a valid Class 3 local license ID to issue an international driving license.",
+            "licenseIdLabel": "Local License ID",
+            "licenseIdPlaceholder": "Enter license ID...",
+            "searchBtn": "Validate",
+            "searching": "Validating...",
+            "localLicenseSection": "Local License Details",
+            "issueBtn": "Issue International License",
+            "issuing": "Issuing...",
+            "successTitle": "International License Issued",
+            "successDescription": "The international license has been issued successfully.",
+            "fields": {
+                "intLicenseId": "Int. License ID",
+                "applicationId": "Application ID",
+                "localLicenseId": "Local License ID",
+                "driver": "Driver",
+                "issueDate": "Issue Date",
+                "expiryDate": "Expiry Date",
+                "fees": "Paid Fees",
+                "status": "Status"
+            },
+            "active": "Active",
+            "inactive": "Inactive",
+            "validationFailed": "Validation failed. Please check the license ID."
+        },
+        "managePage": {
+            "title": "International Licenses",
+            "description": "All issued international driving licenses.",
+            "col": {
+                "intLicenseId": "Int. License ID",
+                "applicationId": "App ID",
+                "localLicenseId": "Local License ID",
+                "driverId": "Driver ID",
+                "fullName": "Full Name",
+                "nationalNo": "National No.",
+                "localClass": "Local Class",
+                "issueDate": "Issue Date",
+                "expiryDate": "Expiry Date",
+                "isActive": "Active",
+                "paidFees": "Paid Fees",
+                "issuedBy": "Issued By",
+                "actions": "Actions"
+            },
+            "actions": {
+                "personDetails": "Person Details",
+                "licenseDetails": "License Details",
+                "licenseHistory": "License History"
+            },
+            "yes": "Yes",
+            "no": "No",
+            "rowsPerPage": "Rows per page",
+            "columns": "Columns"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "errors": {
+        "invalid_type": "هذا الحقل مطلوب",
+        "invalid_type_received_undefined": "هذا الحقل مطلوب",
+        "too_small": {
+            "string": {
+                "inclusive": "هذا الحقل مطلوب"
+            }
+        }
+    }
+}

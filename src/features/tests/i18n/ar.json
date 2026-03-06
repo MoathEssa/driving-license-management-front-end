@@ -1,0 +1,93 @@
+{
+    "tests": {
+        "testTypes": {
+            "page": {
+                "title": "أنواع الاختبارات",
+                "description": "عرض وإدارة أنواع اختبارات رخصة القيادة ورسومها."
+            },
+            "table": {
+                "search": "البحث في أنواع الاختبارات...",
+                "noResults": "لم يتم العثور على أنواع اختبارات.",
+                "rowsPerPage": "صفوف في الصفحة",
+                "columns": "الأعمدة"
+            },
+            "columns": {
+                "id": "الرقم",
+                "title": "العنوان",
+                "description": "الوصف",
+                "fees": "الرسوم"
+            },
+            "actions": {
+                "edit": "تعديل"
+            },
+            "editDialog": {
+                "title": "تعديل نوع الاختبار",
+                "titleLabel": "العنوان",
+                "titlePlaceholder": "أدخل عنوان نوع الاختبار",
+                "descriptionLabel": "الوصف",
+                "descriptionPlaceholder": "أدخل وصف نوع الاختبار (اختياري)",
+                "feesLabel": "الرسوم",
+                "feesPlaceholder": "0.00",
+                "cancel": "إلغاء",
+                "save": "حفظ التغييرات",
+                "saving": "جارٍ الحفظ..."
+            }
+        },
+        "appointments": {
+            "dialog": {
+                "title": "مواعيد اختبار {{testType}}",
+                "ldlaId": "رقم الطلب",
+                "class": "الفئة",
+                "name": "المتقدم",
+                "scheduleBtn": "جدولة اختبار",
+                "closeBtn": "إغلاق"
+            },
+            "table": {
+                "trial": "المحاولة",
+                "date": "التاريخ",
+                "fees": "الرسوم",
+                "result": "النتيجة",
+                "notes": "ملاحظات",
+                "actions": "تأدية الاختبار",
+                "noResults": "لا توجد مواعيد مجدولة بعد."
+            },
+            "results": {
+                "pass": "ناجح",
+                "fail": "راسب",
+                "pending": "لم يُؤدَّ"
+            }
+        },
+        "schedule": {
+            "title": "جدولة اختبار {{testType}}",
+            "date": "تاريخ الموعد",
+            "datePlaceholder": "اختر التاريخ",
+            "fees": "رسوم الاختبار",
+            "trial": "رقم المحاولة",
+            "save": "جدولة",
+            "saving": "جارٍ الجدولة...",
+            "cancel": "إلغاء"
+        },
+        "takeTest": {
+            "title": "تأدية اختبار {{testType}}",
+            "result": "نتيجة الاختبار",
+            "pass": "ناجح",
+            "fail": "راسب",
+            "notes": "ملاحظات",
+            "notesPlaceholder": "ملاحظات اختيارية...",
+            "save": "تسجيل النتيجة",
+            "saving": "جارٍ الحفظ...",
+            "cancel": "إلغاء"
+        },
+        "issueLicense": {
+            "title": "إصدار الرخصة — للمرة الأولى",
+            "ldlaId": "رقم الطلب",
+            "class": "الفئة",
+            "name": "المتقدم",
+            "notes": "ملاحظات",
+            "notesPlaceholder": "ملاحظات اختيارية...",
+            "issueBtn": "إصدار الرخصة",
+            "issuing": "جارٍ الإصدار...",
+            "cancel": "إلغاء"
+        }
+    }
+}

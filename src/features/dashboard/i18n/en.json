@@ -1,0 +1,64 @@
+{
+    "dashboard": {
+        "pageSubtitle": "Overview of all operations in the management center.",
+        "kpi": {
+            "licensedDrivers": "Licensed Drivers",
+            "peopleRegistered": "{{val}} people registered",
+            "activeLicenses": "Active Licenses",
+            "internationalCount": "{{val}} international",
+            "applicationsMonth": "Applications (Month)",
+            "allTime": "{{val}} all-time",
+            "detainedLicenses": "Detained Licenses",
+            "totalFines": "{{amount}} total fines",
+            "revenueMonth": "Revenue (Month)"
+        },
+        "charts": {
+            "monthlyTrend": "Monthly Applications Trend",
+            "appsByType": "Applications by Type",
+            "testPassRates": "Test Pass Rates",
+            "licensesByReason": "Licenses by Issue Reason",
+            "appsByStatus": "Applications by Status"
+        },
+        "legend": {
+            "total": "Total",
+            "completed": "Completed",
+            "passed": "Passed",
+            "failed": "Failed",
+            "licenses": "Licenses"
+        },
+        "appTypeShort": {
+            "newLocal": "New Local",
+            "international": "Int'l",
+            "renewal": "Renewal",
+            "replacement": "Replacement",
+            "release": "Release",
+            "drivingTest": "Test",
+            "retakeTest": "Retake"
+        },
+        "status": {
+            "New": "New",
+            "Completed": "Completed",
+            "Cancelled": "Cancelled",
+            "totalApplications": "{{val}} total applications"
+        },
+        "detain": {
+            "title": "Detain & Fine Summary",
+            "totalEver": "Total Detained (ever)",
+            "totalFines": "Total Fines",
+            "currentlyDetained": "Currently Detained",
+            "pendingFines": "Pending Fines",
+            "released": "Released",
+            "collectedFines": "Collected Fines",
+            "releaseRate": "Release Rate"
+        },
+        "system": {
+            "title": "System Overview",
+            "totalPeople": "Total People",
+            "testsTaken": "Tests Taken",
+            "activeUsers": "Active System Users",
+            "testsPassed": "Tests Passed ({{rate}}%)",
+            "intlActive": "Int'l Licenses Active",
+            "expiredLicenses": "Expired Licenses"
+        }
+    }
+}

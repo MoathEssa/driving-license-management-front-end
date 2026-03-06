@@ -1,0 +1,35 @@
+{
+    "sidebar": {
+        "groups": {
+            "main": "الرئيسية",
+            "applications": "الطلبات",
+            "management": "الإدارة",
+            "admin": "الإدارة العامة"
+        },
+        "nav": {
+            "dashboard": "لوحة التحكم",
+            "drivingLicensesServices": "خدمات رخصة القيادة",
+            "newDrivingLicense": "رخصة قيادة جديدة",
+            "localLicense": "رخصة محلية",
+            "internationalLicense": "رخصة دولية",
+            "renewLicense": "تجديد رخصة القيادة",
+            "replacementLicense": "بدل ضائع أو تالف",
+            "releaseDetained": "رفع حجز الرخصة",
+            "retakeTest": "إعادة الاختبار",
+            "manageApplications": "إدارة الطلبات",
+            "localDLApplications": "طلبات رخصة القيادة المحلية",
+            "internationalLicenseApps": "طلبات الرخصة الدولية",
+            "detainLicenses": "حجز الرخص",
+            "detainLicense": "حجز رخصة",
+            "applicationTypes": "إدارة أنواع الطلبات",
+            "testTypes": "إدارة أنواع الاختبارات",
+            "people": "الأشخاص",
+            "drivers": "السائقون",
+            "users": "المستخدمون",
+            "accountSettings": "إعدادات الحساب"
+        }
+    },
+    "header": {
+        "toggleSidebar": "تبديل الشريط الجانبي"
+    }
+}

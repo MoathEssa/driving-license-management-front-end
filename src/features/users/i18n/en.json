@@ -1,0 +1,88 @@
+{
+    "users": {
+        "page": {
+            "title": "User Management",
+            "addUser": "Add New User",
+            "description": "Create and manage user accounts for people in the system."
+        },
+        "fields": {
+            "fullName": "Full Name",
+            "nationalNo": "National No.",
+            "dateOfBirth": "Date of Birth",
+            "gender": "Gender",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "hasAccount": "Account Status",
+            "role": "Role"
+        },
+        "roles": {
+            "user": "User",
+            "admin": "Admin"
+        },
+        "wizard": {
+            "title": "Add New User",
+            "tab1": "Find Person",
+            "tab2": "User Information",
+            "personInfo": "Person Information",
+            "nationalNoLabel": "National Number",
+            "nationalNoPlaceholder": "Enter national number to search...",
+            "search": "Search",
+            "searching": "Searching...",
+            "personNotFound": "No person found with this national number.",
+            "alreadyHasAccount": "This person already has a user account.",
+            "next": "Next",
+            "back": "Back",
+            "emailPlaceholder": "Enter user email",
+            "rolePlaceholder": "Select role",
+            "createUser": "Create User",
+            "creating": "Creating..."
+        },
+        "table": {
+            "search": "Search users...",
+            "noResults": "No users found.",
+            "rowsPerPage": "Rows per page",
+            "columns": "Columns"
+        },
+        "columns": {
+            "userId": "ID",
+            "email": "Email",
+            "role": "Role",
+            "fullName": "Full Name",
+            "phone": "Phone",
+            "status": "Status",
+            "createdAt": "Created Date"
+        },
+        "actions": {
+            "sendEmail": "Send Email",
+            "activate": "Activate User",
+            "deactivate": "Deactivate User",
+            "cannotDeactivateSelf": "You cannot deactivate your own account"
+        },
+        "status": {
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "sendEmailDialog": {
+            "title": "Send Email to {{name}}",
+            "description": "Compose a message to send directly to this user's email address.",
+            "subjectLabel": "Subject",
+            "subjectPlaceholder": "Enter email subject...",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Write your message here...",
+            "send": "Send Email",
+            "sending": "Sending...",
+            "successTitle": "Email Sent",
+            "successMessage": "Your message has been sent successfully.",
+            "errorTitle": "Failed to Send"
+        },
+        "toggleActiveDialog": {
+            "deactivateTitle": "Deactivate User",
+            "activateTitle": "Activate User",
+            "deactivateDescription": "Are you sure you want to deactivate {{name}}? They will no longer be able to log in.",
+            "activateDescription": "Are you sure you want to activate {{name}}? They will be able to log in again.",
+            "confirm": "Confirm",
+            "cancel": "Cancel"
+        }
+    }
+}

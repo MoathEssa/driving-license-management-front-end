@@ -1,0 +1,90 @@
+{
+    "people": {
+        "page": {
+            "title": "People Management",
+            "description": "View and manage all registered people in the system."
+        },
+        "table": {
+            "search": "Search people...",
+            "noResults": "No people found.",
+            "rowsPerPage": "Rows per page",
+            "columns": "Columns"
+        },
+        "columns": {
+            "id": "ID",
+            "nationalNo": "National No.",
+            "fullName": "Full Name",
+            "gender": "Gender",
+            "dateOfBirth": "Date of Birth",
+            "email": "Email",
+            "phone": "Phone"
+        },
+        "actions": {
+            "edit": "Edit",
+            "delete": "Delete"
+        },
+        "form": {
+            "nationalNo": "National Number",
+            "nationalNoPlaceholder": "Enter national number",
+            "firstName": "First Name",
+            "firstNamePlaceholder": "Enter first name",
+            "secondName": "Second Name",
+            "secondNamePlaceholder": "Enter second name (optional)",
+            "thirdName": "Third Name",
+            "thirdNamePlaceholder": "Enter third name (optional)",
+            "lastName": "Last Name",
+            "lastNamePlaceholder": "Enter last name",
+            "dateOfBirth": "Date of Birth",
+            "dateOfBirthPlaceholder": "Select date of birth",
+            "gender": "Gender",
+            "genderPlaceholder": "Select gender",
+            "email": "Email",
+            "emailPlaceholder": "Enter email address (optional)",
+            "phone": "Phone",
+            "phonePlaceholder": "Enter phone number (optional)",
+            "address": "Address",
+            "addressPlaceholder": "Enter address (optional)",
+            "uploadPhoto": "Upload Photo",
+            "changePhoto": "Change Photo"
+        },
+        "addPerson": {
+            "title": "Add New Person",
+            "button": "Add Person",
+            "submit": "Add Person",
+            "success": "Person added successfully."
+        },
+        "editPerson": {
+            "title": "Edit – {{name}}",
+            "submit": "Save Changes",
+            "success": "Person updated successfully."
+        },
+        "deletePerson": {
+            "title": "Delete Person",
+            "description": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+            "confirm": "Delete",
+            "cancel": "Cancel"
+        },
+        "info": {
+            "title": "Person Information",
+            "fullName": "Full Name",
+            "nationalNo": "National No.",
+            "dateOfBirth": "Date of Birth",
+            "gender": "Gender",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "hasAccount": "Account Status",
+            "statusActive": "Has Account",
+            "statusNoAccount": "No Account",
+            "male": "Male",
+            "female": "Female"
+        },
+        "lookup": {
+            "nationalNoLabel": "National Number",
+            "nationalNoPlaceholder": "Enter national number to search...",
+            "search": "Search",
+            "searching": "Searching...",
+            "personNotFound": "No person found with this national number."
+        }
+    }
+}
