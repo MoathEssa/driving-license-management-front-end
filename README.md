@@ -1,352 +1,169 @@
-﻿# 🚗 Driving License Management Center — Frontend
+﻿# Driving License Management Center — Frontend
 
-A modern, fully-featured **React 19 + TypeScript** single-page application for managing driving licenses. Built with **Redux Toolkit**, **React Router v7**, and **shadcn/ui**, this frontend delivers a polished, accessible, and responsive interface for license operations — from applicant registration and testing to international license issuance.
+React 19 SPA for a government driving license management platform. Digitizes the full licensing workflow — from citizen registration and three-stage testing through license issuance, renewal, detention, and international permits — with bilingual Arabic/English support, role-based access, and a real-time operational dashboard.
 
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Tech Stack](#tech-stack)
-- [Application Features](#application-features)
-- [Pages & Routes](#pages--routes)
-- [Architecture](#architecture)
-- [State Management](#state-management)
-- [Form Validation](#form-validation)
-- [Internationalization](#internationalization)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
+> **Backend →** [DrivingLicenseManagementCenterBk](../DrivingLicenseManagementCenterBk/README.md) — ASP.NET Core 10 Clean Architecture API with CQRS
 
 ---
 
-## Overview
+## Implemented Features
 
-The Driving License Management Center frontend is a comprehensive administrative SPA that communicates with the [ASP.NET Core backend API](https://github.com/MoathEssa/DrivingLicenseManagementCenterBk). It provides dedicated workflows for every stage of the driving license lifecycle:
+### Authentication & Session Management
 
-- Registering citizens and creating applications
-- Managing three-stage driving tests (Vision → Theory → Street Driving)
-- Issuing, renewing, and replacing licenses
-- Detaining and releasing licenses with fine tracking
-- Issuing international driving permits
+- **Login / Registration** — JWT-based authentication with email and password. Access tokens stored in memory, refresh tokens handled as HttpOnly cookies by the backend — never exposed to JavaScript.
+- **Automatic token refresh** — When a session expires mid-use, the app silently refreshes the access token and retries the failed request. A mutex lock prevents race conditions when multiple API calls expire simultaneously.
+- **Cross-tab logout** — Logging out in one browser tab immediately signs out all other open tabs via the BroadcastChannel API, preventing stale sessions from making authenticated requests.
+- **Invitation-based user onboarding** — Admins create user accounts that trigger email invitations. Invited users land on a password-setup page with a tokenized link — no self-service admin access.
+- **Forgot / Reset password flow** — Email-based password recovery with token validation.
 
-The interface is designed for internal staff use, with route guards, authenticated contexts, and a clean sidebar-driven navigation layout.
+### Driving License Lifecycle
+
+- **Application submission** — Users create local driving license applications by selecting a person and license class. The system validates eligibility (age, existing applications, duplicate checks) before submission.
+- **Three-stage test pipeline** — Each application progresses through vision, written, and practical exams. The UI tracks which tests are passed, allows scheduling appointments, and records pass/fail results. Failed tests automatically generate retake applications with fees.
+- **First-time license issuance** — After all three tests pass, clerks can issue the license directly from the application detail view. The system creates the driver record (if first license) and the license atomically.
+- **License renewal** — Preview screen shows expiry status, eligibility, and fees before submission. The old license is deactivated and a new one issued.
+- **License replacement** — Handles lost and damaged scenarios with separate tracking. Same preview → confirm flow as renewal.
+- **License detention** — Law enforcement can detain active licenses with recorded fine amounts. Separate release workflow with its own application and fee.
+- **International licenses** — Validates that the applicant holds an active, non-expired local license before allowing international permit issuance. 1-year validity with independent management views.
+
+### People Management
+
+- **Full CRUD for person records** — Create, view, update, and delete persons with fields for national ID, contact info, nationality, gender, and date of birth.
+- **Image upload** — Person photos uploaded via multipart form-data and stored in Azure Blob Storage, displayed throughout the application.
+
+### User & Admin Management
+
+- **User listing with status control** — Admins view all system users and can activate/deactivate accounts instantly.
+- **Email actions** — Resend invitation emails or send custom messages to users directly from the management view.
+- **Fee configuration** — Admins can update fees for application types and test types. Changes take effect immediately for new transactions.
+
+### Dashboard & Analytics
+
+- **KPI cards** — At-a-glance counts for total people, drivers, active licenses, and applications.
+- **Monthly trend chart** — Line chart showing application volume over time to identify seasonal patterns.
+- **Application distribution** — Breakdown by type (new, renewal, replacement, international) and by status (new, completed, cancelled).
+- **Test pass rates** — Bar chart comparing pass/fail rates across vision, written, and practical exams.
+- **License issuance breakdown** — Distribution by reason (first-time, renewal, lost replacement, damaged replacement).
+- **Detention statistics** — Active vs. released detained licenses.
+
+### Bilingual Support (Arabic / English)
+
+- **Full RTL/LTR layout switching** — Not just translated strings. The entire layout direction, input alignment, sidebar position, and component ordering flip between Arabic (RTL) and English (LTR).
+- **Localized form validation** — Zod validation errors render in the active language using `zod-i18n-map` with custom per-locale overrides. Users see "هذا الحقل مطلوب" instead of "Required" when the app is in Arabic.
+- **Feature-scoped translations** — Each feature owns its own translation files (en.json / ar.json), merged at initialization. No monolithic translation files to maintain.
+
+### Theme System
+
+- **Dark and light modes** — OKLCH-based color system with smooth switching. System preference auto-detection on first visit, with manual toggle persisted to localStorage.
 
 ---
 
 ## Tech Stack
 
-| Technology | Version | Purpose |
-|---|---|---|
-| React | 19 | UI framework |
-| TypeScript | 5.9 | Type safety |
-| Vite | 7 | Build tool & dev server |
-| React Router DOM | 7 | Client-side routing with nested layouts |
-| Redux Toolkit | 2 | Global state management |
-| React Hook Form | 7 | Performant form handling |
-| Zod | 3 | Schema-based form validation |
-| Tailwind CSS | 4 | Utility-first styling |
-| shadcn/ui (Radix UI) | Latest | Accessible, unstyled UI components |
-| TanStack Table | 8 | Headless data tables with sorting & filtering |
-| Recharts | 3 | Dashboard charts and graphs |
-| i18next + react-i18next | 25/16 | Multi-language support |
-| date-fns | 4 | Date formatting and manipulation |
-| sonner | 2 | Toast notification system |
-| next-themes | 0.4 | Dark / light mode theming |
-| dnd-kit | 6/10 | Drag and drop interactions |
-| lucide-react | 0.575 | Icon library |
-
----
-
-## Application Features
-
-### 🔐 Authentication
-
-- **Sign In** — Email/password login with access token stored in Redux state
-- **Register** — Create a new system user account
-- **Forgot Password** — Request a reset email
-- **Set / Reset Password** — Complete password change via secure email token
-- **Account Settings** — Update personal information and change password
-- **Auth Guards** — `GuestGuard` prevents logged-in users from seeing auth pages; `AuthGuard` protects all application routes
-- **Silent Token Refresh** — Axios interceptors automatically refresh the JWT access token using the HttpOnly cookie before requests fail with 401
-
-### 📊 Dashboard
-
-A real-time statistics page populated from the backend aggregate query, displaying:
-- Total applications and status breakdown
-- Total drivers registered
-- Total licenses issued
-- Test pass/fail rates
-- Detained and released license counts
-- International licenses issued
-
-Visualized with **Recharts** bar/pie charts for immediate operational insight.
-
-### 👤 People Management
-
-- Searchable, sortable data table of all registered citizens
-- Add new person with full profile: name, national ID, date of birth, address, country/nationality
-- Edit existing person records
-- People lookup before creating license applications
-
-### 📄 Local Driving License Applications
-
-- **Application List** — Browse all active applications; each row shows the applicant name, license class, status, and how many of the 3 tests they have passed
-- **New Application** — Select an existing person and a license class to open a new application
-- **Application Details** — Deep-dive view: applicant info, test appointment history, passed/failed counts, current status
-- **Cancel Application** — Soft-cancel a `New` application before any tests are recorded
-
-### 🧪 Testing Workflow
-
-The testing module follows a strict sequential flow:
-
-```
-Vision Test  →  Theory Test  →  Street Driving Test  →  Issue License
-```
-
-For each test type:
-- **View Appointments** — See the history of all appointments for a given application + test type
-- **Schedule Appointment** — Pick a test type and appointment date; the system auto-creates a paid retake application if the applicant is coming back after a failure
-- **Record Result** — Mark the appointment as passed or failed with optional notes; once recorded, the result is locked and cannot be changed
-- **Retake Tracking** — Failed tests are tracked across appointments with separate fee payments per attempt
-
-### 🪪 Drivers & License Operations
-
-Once all three tests are passed, the application unlocks the license issuance workflow:
-
-- **Issue License (First Time)** — Create the driver record and issue the first license for the correct class
-- **Renew License** — Extend an expiring or expired license; displays a preview of the new expiration date before confirmation
-- **Replace License** — Issue a replacement for a lost or damaged license; selects the reason code and generates a new license record
-- **Detain License** — Mark a license as confiscated by traffic authority; enter fine amount
-- **Drivers List** — Browse all registered drivers with their license counts and current status
-
-### 🔒 Detained Licenses
-
-- **Detained Licenses List** — View all currently detained licenses across the system
-- **Release License** — Process the release of a detained license after fine payment; creates a release application linked to the original detain record
-
-### 🌍 International Licenses
-
-- **Apply for International License** — Enter a local license ID for validation; the system checks the license is active and not expired; upon confirmation issues a 1-year international permit
-- **International Licenses List** — Browse all issued international licenses with driver and date information
-- **Per-Driver View** — Check all international licenses for a specific driver
-
-### ⚙️ Administration
-
-- **Users Management** — Create and manage system user accounts (admin-only area)
-- **Application Types** — View and manage lookup values for application types
-- **Test Types** — View and update test type fees for Vision, Theory, and Street Driving tests
-
----
-
-## Pages & Routes
-
-### Public / Auth Routes
-
-| Route | Description |
-|---|---|
-| `/auth/sign-in` | Login page (GuestGuard protected) |
-| `/auth/register` | Registration page (GuestGuard protected) |
-| `/auth/forgot-password` | Forgot password form |
-| `/auth/set-password` | Complete password reset (token link) |
-| `/auth/reset-password` | Reset password |
-| `/auth/forbidden` | 403 error page |
-
-### Protected Routes (inside ApplicationLayout with sidebar)
-
-| Route | Description |
-|---|---|
-| `/` | Dashboard — statistics overview |
-| `/people` | People registry |
-| `/drivers` | Drivers list |
-| `/applications/local` | Local driving license applications |
-| `/applications/international` | Apply for international license |
-| `/applications/manage/international` | Manage / list international licenses |
-| `/applications/renew` | License renewal workflow |
-| `/applications/replacement` | License replacement workflow |
-| `/applications/detain` | Detain a license |
-| `/applications/release-detained` | Release detained license |
-| `/admin/users` | User management (admin) |
-| `/admin/applications/types` | Application type settings (admin) |
-| `/admin/tests/types` | Test type fee settings (admin) |
-| `/auth/account-settings` | User account settings |
+| Layer            | Technologies                                                             |
+| ---------------- | ------------------------------------------------------------------------ |
+| **Framework**    | React 19, TypeScript 5.8 (strict mode)                                   |
+| **State & Data** | Redux Toolkit, RTK Query (tag-based cache invalidation)                  |
+| **Routing**      | React Router v7 with auth/guest guards                                   |
+| **Forms**        | React Hook Form + Zod (schema-first validation with i18n error messages) |
+| **UI**           | shadcn/ui + Radix UI, Tailwind CSS v4 (OKLCH color system)               |
+| **i18n**         | i18next + react-i18next + zod-i18n-map                                   |
+| **Charts**       | Recharts                                                                 |
+| **Build**        | Vite 7                                                                   |
 
 ---
 
 ## Architecture
 
-The project follows a **Feature-Sliced** structure where each domain feature owns its own components, pages, store slices, API calls, validation schemas, and i18n translations.
+Feature-based architecture — each domain feature is a self-contained module with its own pages, components, API slice, validation schemas, and translations.
 
 ```
 src/
-├── app/                    → App-level concerns
-│   ├── providers/          → React context providers (Redux, Theme, i18n)
-│   ├── router/             → Route definitions and auth guards
-│   └── store/              → Redux store root and middleware
-│
-├── features/               → Feature-sliced modules
-│   ├── auth/               → Login, Register, Auth guards, Account settings
-│   ├── dashboard/          → Stats page and chart components
-│   ├── people/             → People CRUD
-│   ├── applications/       → LDLA + Application types
-│   ├── tests/              → Test scheduling and result entry
-│   ├── drivers/            → License issuance, renewal, replace, detain, release
-│   ├── international/      → International license apply and manage
-│   └── users/              → Admin user management
-│
-└── shared/                 → Shared utilities used across features
-    ├── api/                → Axios instance with interceptors
-    ├── components/         → Layout shell, reusable data tables
-    ├── constants/          → App-wide constants
-    ├── hooks/              → Custom React hooks
-    ├── lib/                → i18n setup, utility functions
-    ├── types/              → Shared TypeScript types
-    └── ui/                 → shadcn/ui component exports
+├── app/
+│   ├── providers/    Redux, Theme, i18n, Auth, Toast (layered hierarchy)
+│   ├── router/       Route config, AuthGuard, GuestGuard
+│   └── store/        Redux store, error notification middleware, language slice
+├── features/
+│   ├── auth/         Login, Register, Set Password, Forgot/Reset Password, Account Settings
+│   ├── applications/ Local DL applications, Application types management
+│   ├── people/       Person CRUD with image upload
+│   ├── users/        Admin user management with invitation flow
+│   ├── drivers/      License issuance, renewal, replacement, detention
+│   ├── tests/        Test types, appointments, results
+│   ├── international/  International license issuance and management
+│   └── dashboard/    KPIs, charts, system statistics
+└── shared/
+    ├── api/          Base RTK Query config with auth interceptor + mutex
+    ├── components/   Layout, sidebar, reusable data table
+    ├── hooks/        Custom hooks (mobile detection, debounce)
+    ├── lib/          i18n setup, localStorage service, utilities
+    ├── types/        Shared TypeScript interfaces
+    └── ui/           30+ shadcn/ui primitives
 ```
 
-Each feature module is self-contained:
+### Key Technical Decisions
 
-```
-features/drivers/
-├── components/         → Reusable UI pieces for this feature
-├── i18n/               → English translation strings
-├── pages/              → Route-level page components
-├── store/              → RTK slice (state + thunks/queries)
-└── index.ts            → Public barrel export
-```
+- **RTK Query with tag-based cache invalidation** — Mutations automatically invalidate related caches across features. Issuing a license invalidates Driver, License, Application, and Dashboard queries without manual refetch logic.
+- **Centralized error middleware** — A single RTK middleware intercepts all API responses and shows toast notifications by HTTP status (400 validation, 401 logout, 403 forbidden, 409 conflict, 500 error). Zero per-component error handling boilerplate.
+- **Auth interceptor with mutex** — Prevents concurrent 401 responses from triggering duplicate token refresh requests. First 401 acquires the lock, refreshes, and all queued requests retry with the new token.
+- **Standardized API envelope** — Every backend response follows `{ statusCode, succeeded, message, errors, data }`. One generic `IGenericApiResponse<T>` type handles all endpoints consistently.
 
 ---
 
-## State Management
+## Pages & Routing
 
-Global state is managed with **Redux Toolkit**:
+### Public Routes (GuestGuard)
 
-| Slice | Description |
-|---|---|
-| `auth` | Authenticated user, access token, loading states |
-| `language` | Active UI language (i18n) |
-| Each feature | Local UI state, cached API data, loading/error flags |
+| Path                    | Description                 |
+| ----------------------- | --------------------------- |
+| `/auth/sign-in`         | Email/password login        |
+| `/auth/register`        | Self-registration           |
+| `/auth/set-password`    | Invited user password setup |
+| `/auth/forgot-password` | Initiate password reset     |
+| `/auth/reset-password`  | Complete password reset     |
 
-**Axios interceptors** in `shared/api/` handle:
-- Attaching the Bearer token to every outgoing request
-- Automatically calling `/auth/refresh-token` on 401 responses
-- Clearing the auth state and redirecting to sign-in if the refresh also fails
+### Protected Routes (AuthGuard)
 
----
-
-## Form Validation
-
-All forms use **React Hook Form** with **Zod** resolver for schema-based validation:
-
-- Schemas are defined per feature in `features/{name}/schemas/`
-- Zod schemas serve as both runtime validators and TypeScript type sources (`z.infer<typeof schema>`)
-- Validation messages are localized through the `zod-i18n-map` package
-- Errors are displayed inline under each field with accessible labels
-
----
-
-## Internationalization
-
-The app supports multiple languages using **i18next** and **react-i18next**:
-
-- Translation files are co-located inside each feature: `features/{name}/i18n/`
-- The active language is persisted in Redux (`languageSlice`) and applied app-wide
-- Zod validation messages are also translated via `zod-i18n-map`
-- Language switching is available in the app header
+| Path                                 | Description                                   |
+| ------------------------------------ | --------------------------------------------- |
+| `/`                                  | Dashboard — KPIs, trend charts, distributions |
+| `/people`                            | Person management with image upload           |
+| `/drivers`                           | Driver list with license history              |
+| `/applications/local`                | Local driving license applications            |
+| `/applications/international`        | Issue international licenses                  |
+| `/applications/manage/international` | Manage international licenses                 |
+| `/applications/renew`                | License renewal workflow                      |
+| `/applications/replacement`          | Lost/damaged license replacement              |
+| `/applications/detain`               | Detain license with fine                      |
+| `/applications/release-detained`     | Release detained licenses                     |
+| `/admin/users`                       | User management (Admin only)                  |
+| `/admin/applications/types`          | Configure application fees (Admin only)       |
+| `/admin/tests/types`                 | Configure test fees (Admin only)              |
+| `/account/settings`                  | User profile settings                         |
 
 ---
 
-## Getting Started
+## How to Run
 
 ### Prerequisites
 
-- [Node.js 18+](https://nodejs.org/)
-- [Backend API running](https://github.com/MoathEssa/DrivingLicenseManagementCenterBk) locally
+- [Node.js 20+](https://nodejs.org/) with npm
+- Backend API running at `http://localhost:5277`
 
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/MoathEssa/DrivingLicenseManagementCenterFr.git
-cd DrivingLicenseManagementCenterFr
-```
-
-### 2. Install dependencies
+### Setup
 
 ```bash
 npm install
-```
-
-### 3. Start the development server
-
-```bash
 npm run dev
 ```
 
-Visit `http://localhost:5173` in your browser. The app will connect to the backend and prompt you to sign in.
+The app starts at `http://127.0.0.1:5173`.
 
-### 4. Build for production
+### Available Scripts
 
-```bash
-npm run build
-```
-
-The output will be in the `dist/` directory, ready to be served by any static host or CDN.
-
----
-
-## Project Structure
-
-```
-DrivingLicenseManagementCenterFr/
-├── public/                     → Static public assets
-├── src/
-│   ├── app/
-│   │   ├── providers/          → Wraps the app in Redux, Theme, i18n providers
-│   │   ├── router/
-│   │   │   ├── config.tsx      → All route definitions
-│   │   │   ├── guards/         → GuestGuard & AuthGuard components
-│   │   │   └── index.ts
-│   │   └── store/
-│   │       ├── index.ts        → Redux store configuration
-│   │       ├── middleware/     → Custom Redux middleware
-│   │       └── slices/         → Global slices (languageSlice)
-│   │
-│   ├── features/
-│   │   ├── auth/               → Login, Register, Password reset, Account settings
-│   │   ├── dashboard/          → Statistics page + charts
-│   │   ├── people/             → People CRUD
-│   │   ├── applications/       → LDLA + ApplicationTypes
-│   │   ├── tests/              → Test appointments and results
-│   │   ├── drivers/            → License issuance, renewal, replace, detain, release
-│   │   ├── international/      → International licenses
-│   │   └── users/              → Admin user management
-│   │
-│   ├── shared/
-│   │   ├── api/                → Axios instance + request/response interceptors
-│   │   ├── components/
-│   │   │   ├── layout/         → ApplicationLayout (sidebar, header, breadcrumbs)
-│   │   │   └── data-table-v2/  → Reusable TanStack Table wrapper
-│   │   ├── constants/          → API URLs, app constants
-│   │   ├── hooks/              → useAppDispatch, useAppSelector, custom hooks
-│   │   ├── lib/
-│   │   │   └── i18n.ts         → i18next initialization and language config
-│   │   ├── types/              → Shared TypeScript interfaces and enums
-│   │   └── ui/                 → Re-exported shadcn/ui components
-│   │
-│   ├── assets/                 → Images, SVGs
-│   ├── index.css               → Tailwind CSS base + custom CSS variables
-│   ├── main.tsx                → React root render
-│   └── App.tsx                 → Root component — providers + router
-│
-├── index.html
-├── vite.config.ts
-├── tsconfig.app.json
-├── tsconfig.json
-└── package.json
-```
-
----
-
-## Backend
-
-The RESTful API that powers this frontend is available at:
-👉 [DrivingLicenseManagementCenterBk](https://github.com/MoathEssa/DrivingLicenseManagementCenterBk)
+| Script            | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| `npm run dev`     | Start Vite dev server with HMR                   |
+| `npm run build`   | Production build (TypeScript check + Vite build) |
+| `npm run preview` | Preview production build locally                 |
+| `npm run lint`    | ESLint check                                     |
