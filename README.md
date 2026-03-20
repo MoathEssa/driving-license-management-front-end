@@ -2,7 +2,7 @@
 
 React 19 SPA for a government driving license management platform. Digitizes the full licensing workflow — from citizen registration and three-stage testing through license issuance, renewal, detention, and international permits — with bilingual Arabic/English support, role-based access, and a real-time operational dashboard.
 
-> **Backend →** [DrivingLicenseManagementCenterBk](../DrivingLicenseManagementCenterBk/README.md) — ASP.NET Core 10 Clean Architecture API with CQRS
+> **Backend →** [driving-license-management-back-end](https://github.com/MoathEssa/driving-license-management-back-end) — ASP.NET Core 10 Clean Architecture API with CQRS
 
 ---
 
