@@ -6,6 +6,16 @@ React 19 SPA for a government driving license management platform. Digitizes the
 
 ---
 
+## Live Demo
+
+| | URL |
+|---|---|
+| **Frontend** | https://black-mud-0f1ed5a0f.4.azurestaticapps.net/ |
+| **Backend API** | https://dvld-api.azurewebsites.net/ |
+| **API Docs (Scalar)** | https://dvld-api.azurewebsites.net/api-docs |
+
+---
+
 ## Implemented Features
 
 ### Authentication & Session Management
@@ -171,6 +181,8 @@ The app starts at `http://127.0.0.1:5173`.
 ---
 
 ## Deployment
+
+**Live URL:** https://black-mud-0f1ed5a0f.4.azurestaticapps.net/
 
 The frontend is deployed to **Azure Static Web Apps** with infrastructure defined as code and fully automated CI/CD.
 
