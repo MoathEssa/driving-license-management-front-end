@@ -167,3 +167,32 @@ The app starts at `http://127.0.0.1:5173`.
 | `npm run build`   | Production build (TypeScript check + Vite build) |
 | `npm run preview` | Preview production build locally                 |
 | `npm run lint`    | ESLint check                                     |
+
+---
+
+## Deployment
+
+The frontend is deployed to **Azure Static Web Apps** with infrastructure defined as code and fully automated CI/CD.
+
+| Concern            | Tool                                    | Location                                    |
+| ------------------ | --------------------------------------- | ------------------------------------------- |
+| **Infrastructure** | Azure Bicep                             | `infra/main.bicep`, `infra/main.bicepparam` |
+| **CI/CD**          | GitHub Actions                          | `.github/workflows/deploy.yml`              |
+| **Hosting**        | Azure Static Web Apps (Free tier)       | Resource created by Bicep                   |
+| **Secrets**        | GitHub Actions Secrets → Build-time env | No secrets in source control                |
+
+**How it works:**
+
+1. Push to `main` triggers the GitHub Actions workflow.
+2. The workflow installs dependencies and runs `npm run build` with `VITE_API_BASE_URL` injected from GitHub Secrets.
+3. Bicep deploys (or updates) the Static Web App resource.
+4. The `dist/` output is deployed to Azure Static Web Apps using the deployment token.
+
+SPA routing is handled via `staticwebapp.config.json` with a navigation fallback to `index.html`.
+
+### GitHub Actions Secrets (Frontend)
+
+| Secret              | Description                                                               |
+| ------------------- | ------------------------------------------------------------------------- |
+| `AZURE_CREDENTIALS` | Azure service principal JSON for `azure/login`                            |
+| `API_BASE_URL`      | Deployed backend API URL (e.g. `https://dvld-api.azurewebsites.net/api/`) |

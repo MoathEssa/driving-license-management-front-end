@@ -10,7 +10,8 @@ import { logout, updateAccessToken } from "@/features/auth/store/authSlice";
 import type { IGenericApiResponse } from "@/shared/types";
 import type { ILoginResponse } from "@/features/auth/store/authApi";
 
-const API_BASE_URL = "http://localhost:5277/api/";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5277/api/";
 
 // Base query with authorization header and language
 const baseQuery = fetchBaseQuery({
