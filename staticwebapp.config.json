@@ -2,19 +2,14 @@
     "navigationFallback": {
         "rewrite": "/index.html",
         "exclude": [
-            "/assets/*"
+            "*.{css,js,svg,png,jpg,jpeg,gif,ico,woff,woff2,ttf,eot,json,map}"
         ]
     },
     "globalHeaders": {
-        "X-Content-Type-Options": "nosniff"
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "no-cache"
     },
     "routes": [
-        {
-            "route": "/index.html",
-            "headers": {
-                "Cache-Control": "no-cache, no-store, must-revalidate"
-            }
-        },
         {
             "route": "/assets/*",
             "headers": {
