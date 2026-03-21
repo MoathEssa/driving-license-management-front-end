@@ -8,11 +8,11 @@ React 19 SPA for a government driving license management platform. Digitizes the
 
 ## Live Demo
 
-| | URL |
-|---|---|
-| **Frontend** | https://black-mud-0f1ed5a0f.4.azurestaticapps.net/ |
-| **Backend API** | https://dvld-api.azurewebsites.net/ |
-| **API Docs (Scalar)** | https://dvld-api.azurewebsites.net/api-docs |
+|                       | URL                                                |
+| --------------------- | -------------------------------------------------- |
+| **Frontend**          | https://black-mud-0f1ed5a0f.4.azurestaticapps.net/ |
+| **Backend API**       | https://dvld-api.azurewebsites.net/                |
+| **API Docs (Scalar)** | https://dvld-api.azurewebsites.net/api-docs        |
 
 ---
 
