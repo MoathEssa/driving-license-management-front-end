@@ -2,6 +2,9 @@
 import type { IGenericApiResponse } from "@shared/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:5277/api/";
+
 // ==================== DTOs ====================
 
 export interface ILoginRequestDTO {
@@ -64,7 +67,7 @@ export interface IForgotPasswordRequest {
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5277/api/Auth/",
+    baseUrl: `${API_BASE_URL}Auth/`,
     credentials: "include", // Include cookies for refresh token
   }),
   endpoints: (builder) => ({
