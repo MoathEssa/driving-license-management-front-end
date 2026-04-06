@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Car, Shield } from "lucide-react";
+import { Car, Shield, Info } from "lucide-react";
 import { ThemeToggle } from "@shared/components/layout/ThemeToggle";
 import LoginForm from "../components/login/components/LoginForm";
 
@@ -63,6 +63,16 @@ const LoginPage = () => {
               </h1>
               <p className="mt-1.5 text-sm text-muted-foreground">
                 {t("auth.login.subtitle")}
+              </p>
+            </div>
+
+            {/* Cold-start notice */}
+            <div className="mb-5 flex gap-2.5 rounded-lg border border-amber-200 bg-amber-50 p-3 text-amber-800 dark:border-amber-800/40 dark:bg-amber-900/20 dark:text-amber-300">
+              <Info className="mt-0.5 h-4 w-4 shrink-0" />
+              <p className="text-xs leading-relaxed">
+                <span className="font-semibold">Demo note:</span> The database
+                runs on a serverless plan and may be sleeping. If the first
+                login attempt fails, please wait a few seconds and try again.
               </p>
             </div>
 
